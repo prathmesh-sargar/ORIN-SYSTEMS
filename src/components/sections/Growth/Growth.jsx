@@ -7,19 +7,22 @@ export default function Growth() {
     <section className="py-20 bg-gray-50">
       <Container>
         <div className="grid lg:grid-cols-2 gap-16 items-center">
-
           {/* LEFT IMAGE */}
           <div className="w-full">
-            <img
-              src={growthImage}
-              alt="Growth"
+            <video
+              autoPlay
+              loop
+              muted
+              playsInline
+              preload="metadata"
               className="w-full h-auto rounded-lg object-cover"
-            />
+            >
+              <source src={growthImage} type="video/mp4" />
+            </video>
           </div>
 
           {/* RIGHT CONTENT */}
           <GrowthContent />
-
         </div>
       </Container>
     </section>
