@@ -116,7 +116,7 @@ export default function WhoWeAre() {
 
             <div className="relative">
               <img
-                src="/images/grow.png"
+                src="/images/collaboration.png"
                 alt="Engineering team working"
                 className="w-full h-[420px] object-cover rounded-xl"
               />

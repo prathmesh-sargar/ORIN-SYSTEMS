@@ -7,10 +7,12 @@ import InnovationsLab from "./pages/InnovationsLab";
 import Careers from "./pages/Careers";
 import Contact from "./pages/Contact";
 import BlogDetail from "./components/sections/Blogs/BlogDetail";
+import ScrollToTop from "./components/ScrollToTop";
 
 function App() {
   return (
     <BrowserRouter>
+      <ScrollToTop />
       <Routes>
         <Route element={<MainLayout />}>
           <Route path="/" element={<Home />} />
