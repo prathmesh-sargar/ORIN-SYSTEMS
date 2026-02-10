@@ -9,8 +9,35 @@ import {
   Instagram,
   Send,
 } from "lucide-react";
+import { useForm } from "react-hook-form";
+import { countryCodes } from "../data/countryCodes";
+
+function Input({ error, ...props }) {
+  return (
+    <div>
+      <input
+        {...props}
+        className="w-full border border-gray-300 rounded-md px-4 py-3 outline-none focus:ring-2 focus:ring-indigo-600"
+      />
+      {error && <p className="text-red-500 text-sm mt-1">{error.message}</p>}
+    </div>
+  );
+}
 
 export default function Contact() {
+  const {
+    register,
+    handleSubmit,
+    reset,
+    formState: { errors, isSubmitting },
+  } = useForm();
+
+  const onSubmit = async (data) => {
+
+    console.log("Form Data:", data);
+  
+  };
+
   return (
     <main className="bg-white">
       {/* HERO */}
@@ -115,15 +142,7 @@ export default function Contact() {
                 </div>
               </div>
 
-              {/* IMAGE BLOCK */}
-              <div className="relative mt-12">
-                <img
-                  src="/images/contactus.png"
-                  alt="Engineering discussion"
-                  className="w-full h-[260px] object-cover rounded-xl"
-                />
-                <div className="absolute inset-0 rounded-xl bg-gradient-to-tr from-indigo-900/10 via-transparent to-purple-900/10"></div>
-              </div>
+              
             </div>
 
             {/* RIGHT SIDE — FORM */}
@@ -137,115 +156,178 @@ export default function Contact() {
                 </p>
               </div>
 
-              <form className="p-8 space-y-6 p-6">
-                {/* FIRST + LAST NAME */}
-                <div className="grid md:grid-cols-2 gap-5">
-                  <div>
-                    <label className="text-lg text-gray-700">
-                      First Name <span className="text-red-500">*</span>
-                    </label>
-                    <input
-                      required
-                      type="text"
-                      placeholder="Alex"
-                      className="mt-2 w-full border border-gray-300 rounded-md px-4 py-3 focus:ring-2 focus:ring-indigo-600 outline-none"
-                    />
-                  </div>
+              {/* FORM */}
+              <form onSubmit={handleSubmit(onSubmit)} className="p-8 space-y-6">
+                {/* FULL NAME */}
+                <div>
+                  <label
+                    htmlFor="fullName"
+                    className="block text-sm font-medium text-gray-700"
+                  >
+                    Full Name *
+                  </label>
+                  <Input
+                    id="fullName"
+                    placeholder="Enter your full name"
+                    error={errors.fullName}
+                    {...register("fullName", {
+                      required: "Full name is required",
+                    })}
+                  />
+                </div>
 
-                  <div>
-                    <label className="text-lg text-gray-700">
-                      Last Name <span className="text-red-500">*</span>
-                    </label>
-                    <input
-                      type="text"
-                      required
-                      placeholder="Johnson"
-                      className="mt-2 w-full border border-gray-300 rounded-md px-4 py-3 focus:ring-2 focus:ring-indigo-600 outline-none"
-                    />
-                  </div>
+                {/* ORGANIZATION */}
+                <div>
+                  <label
+                    htmlFor="organization"
+                    className="block text-sm font-medium text-gray-700"
+                  >
+                    Organization Name *
+                  </label>
+                  <Input
+                    id="organization"
+                    placeholder="Enter organization name"
+                    error={errors.organization}
+                    {...register("organization", {
+                      required: "Organization name is required",
+                    })}
+                  />
                 </div>
 
                 {/* EMAIL */}
                 <div>
-                  <label className="text-lg text-gray-700">
-                    Email Address <span className="text-red-500">*</span>
+                  <label
+                    htmlFor="email"
+                    className="block text-sm font-medium text-gray-700"
+                  >
+                    Business Email Address *
                   </label>
-                  <input
+                  <Input
+                    id="email"
                     type="email"
-                     required
-                    placeholder="alex.johnson@example.com"
-                    className="mt-2 w-full border border-gray-300 rounded-md px-4 py-3 focus:ring-2 focus:ring-indigo-600 outline-none"
+                    placeholder="you@company.com"
+                    error={errors.email}
+                    {...register("email", {
+                      required: "Email required",
+                      pattern: {
+                        value: /^[^\s@]+@[^\s@]+\.[^\s@]+$/,
+                        message: "Invalid email address",
+                      },
+                    })}
                   />
                 </div>
 
-                {/* COMPANY + PHONE */}
-                <div className="grid md:grid-cols-2 gap-5">
-                  <div>
-                    <label className="text-lg text-gray-700">
-                      Company <span className="text-red-500">*</span>
-                    </label>
+                {/* PHONE */}
+                <div>
+                  <label className="block text-sm font-medium text-gray-700">
+                    Contact Number *
+                  </label>
+
+                  <div className="flex gap-2 mt-2">
+                    <select
+                      {...register("countryCode")}
+                      className="border border-gray-300 rounded-md px-3 py-3 bg-white"
+                    >
+                      {countryCodes.map((c) => (
+                        <option key={c.name} value={c.dialCode}>
+                          {c.name} {c.dialCode}
+                        </option>
+                      ))}
+                    </select>
+
                     <input
-                      type="text"
-                      required
-                      placeholder="Your Company Name"
-                      className="mt-2 w-full border border-gray-300 rounded-md px-4 py-3 focus:ring-2 focus:ring-indigo-600 outline-none"
+                      id="phone"
+                      placeholder="Enter phone number"
+                      className="flex-1 border border-gray-300 rounded-md px-4 py-3 outline-none focus:ring-2 focus:ring-indigo-600"
+                      {...register("phone", {
+                        required: "Phone number required",
+                        pattern: {
+                          value: /^[0-9]{7,15}$/,
+                          message: "Invalid phone number",
+                        },
+                      })}
                     />
                   </div>
 
-                  <div>
-                    <label className="text-lg text-gray-700">
-                      Phone Number <span className="text-red-500">*</span>
-                    </label>
-
-                    <div className="mt-2 flex gap-2">
-                      <select className="border border-gray-300 rounded-md px-3 py-3 bg-white">
-                        <option>IN +91</option>
-                      </select>
-
-                      <input
-                        type="tel"
-                        required
-                        placeholder="9876543210"
-                        className="flex-1 border w-[150px] border-gray-300 rounded-md px-4 py-3 focus:ring-2 focus:ring-indigo-600 outline-none"
-                      />
-                    </div>
-                  </div>
+                  {errors.phone && (
+                    <p className="text-red-500 text-sm mt-1">
+                      {errors.phone.message}
+                    </p>
+                  )}
                 </div>
 
-                {/* INDUSTRY */}
+                {/* COUNTRY */}
                 <div>
-                  <label className="text-lg text-gray-700">
-                    Industry <span className="text-red-500">*</span>
+                  <label
+                    htmlFor="country"
+                    className="block text-sm font-medium text-gray-700"
+                  >
+                    Country *
                   </label>
-                  <select className="mt-2 w-full border border-gray-300 rounded-md px-4 py-3 bg-white focus:ring-2 focus:ring-indigo-600 outline-none">
-                    <option>Select your industry</option>
-                    <option>Finance</option>
-                    <option>Healthcare</option>
-                    <option>Manufacturing</option>
-                    <option>Retail</option>
-                    <option>Technology</option>
-                    <option>Other</option>
-                  </select>
-                </div>
-
-                {/* PROJECT DETAILS */}
-                <div>
-                  <label className="text-lg text-gray-700">
-                    Project Details <span className="text-red-500">*</span>
-                  </label>
-                  <textarea
-                    rows="5"
-                    placeholder="Tell us about your project requirements and how we can help you achieve your objectives."
-                    className="mt-2 w-full border border-gray-300 rounded-md px-4 py-3 focus:ring-2 focus:ring-indigo-600 outline-none"
+                  <Input
+                    id="country"
+                    placeholder="Enter your country"
+                    error={errors.country}
+                    {...register("country", {
+                      required: "Country is required",
+                    })}
                   />
                 </div>
 
-                {/* SUBMIT */}
+                {/* DESIGNATION */}
+                <div>
+                  <label
+                    htmlFor="designation"
+                    className="block text-sm font-medium text-gray-700"
+                  >
+                    Job Title / Designation *
+                  </label>
+                  <Input
+                    id="designation"
+                    placeholder="Enter your designation"
+                    error={errors.designation}
+                    {...register("designation", {
+                      required: "Designation required",
+                    })}
+                  />
+                </div>
+
+                {/* MESSAGE */}
+                <div>
+                  <label
+                    htmlFor="message"
+                    className="block text-sm font-medium text-gray-700"
+                  >
+                    How Can We Help You? *
+                  </label>
+                  <textarea
+                    id="message"
+                    rows="5"
+                    placeholder="Describe your requirement..."
+                    className="mt-2 w-full border border-gray-300 rounded-md px-4 py-3 outline-none focus:ring-2 focus:ring-indigo-600"
+                    {...register("message", {
+                      required: "Message required",
+                    })}
+                  />
+                  {errors.message && (
+                    <p className="text-red-500 text-sm mt-1">
+                      {errors.message.message}
+                    </p>
+                  )}
+                </div>
+
+                <p className="text-sm text-gray-500">
+                  All information submitted will be handled in accordance with
+                  our confidentiality and data protection standards.
+                </p>
+
                 <button
                   type="submit"
-                  className="w-full bg-gradient-to-r from-indigo-600 via-purple-600 to-cyan-500 text-white py-3.5 rounded-md font-medium flex items-center justify-center gap-2 hover:opacity-95 transition"
+                  disabled={isSubmitting}
+                  className="w-full bg-gradient-to-r from-indigo-600 via-purple-600 to-cyan-500 text-white py-3.5 rounded-md flex items-center justify-center gap-2"
                 >
-                  Send Message <Send size={16} />
+                  {isSubmitting ? "Sending..." : "Send Message"}
+                  <Send size={16} />
                 </button>
               </form>
             </div>

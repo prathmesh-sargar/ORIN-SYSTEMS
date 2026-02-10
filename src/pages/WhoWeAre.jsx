@@ -75,7 +75,7 @@ export default function WhoWeAre() {
               </h2>
 
               <p className="text-lg">
-                ORIN SYSTEMS is a technology company specializing in the design
+                ORIN SYSTEMS is a Engineering-led technology company specializing in the design
                 and engineering of secure, scalable, and intelligent software
                 systems for modern enterprises. We deliver AI/ML-driven
                 solutions, SaaS platforms, Industrial IoT systems, and
