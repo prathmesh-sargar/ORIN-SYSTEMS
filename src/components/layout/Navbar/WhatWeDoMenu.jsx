@@ -8,7 +8,7 @@ export default function WhatWeDoMenu() {
   const col2 = navigation.whatWeDo.slice(mid);
 
   return (
-    <div className="grid grid-cols-2 gap-x-16 gap-y-4 text-sm">
+    <div className="grid grid-cols-2 gap-x-16 gap-y-4 text-lg">
       <div className="space-y-3">
         {col1.map((item) => (
           <Link

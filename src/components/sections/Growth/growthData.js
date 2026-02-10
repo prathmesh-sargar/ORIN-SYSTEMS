@@ -1,25 +1,35 @@
-import { Brain, Cloud, Cpu } from "lucide-react";
+
+import idea from "../../../assets/images/icons/idea.png";
+import machine from "../../../assets/images/icons/machine.png";
+import system from "../../../assets/images/icons/system.png";
+
+
+export const growthSection = {
+  title: "Driving Growth Through Purpose-Built Technology",
+  description:
+    "Technology is not an add-on — it is the foundation on which growth is engineered. We design and deliver systems that help organizations move from ideas to execution with speed, clarity, and control.",
+};
 
 export const growthCards = [
   {
     id: 1,
-    title: "AI",
+    title: "Applied Intelligence",
     description:
-      "Helping you identify and seize opportunities to leverage AI/GenAI to automate and accelerate business processes.",
-    icon: Brain,
+      "We apply AI with precision, focusing on where intelligence removes friction, improves decisions, and creates measurable business outcomes.",
+    image: idea,
   },
   {
     id: 2,
-    title: "Cloud",
+    title: "Engineering at the Core",
     description:
-      "Our CloudSMART offerings drive enterprise cloud optimization through accelerated innovation and agility at scale.",
-    icon: Cloud,
+      "From system architecture to deployment, disciplined engineering enables reliable, extensible platforms built for real-world complexity.",
+    image: machine,
   },
   {
     id: 3,
-    title: "Engineering",
+    title: "Innovation at Heart",
     description:
-      "Services designed to accelerate product development, streamline time-to-profit and maximize return on innovation.",
-    icon: Cpu,
+      "Innovation is grounded in execution — continuously refining how systems are designed, integrated, and scaled for future-ready growth.",
+    image: system,
   },
 ];

@@ -4,8 +4,11 @@ import MegaMenu from "./MegaMenu";
 import WhatWeDoMenu from "./WhatWeDoMenu";
 import IndustriesMenu from "./IndustriesMenu";
 import { navigation } from "../../../data/navigation";
-import { ChevronDown, Menu, X } from "lucide-react";
+import { ChevronDown } from "lucide-react";
 import { Link, useLocation } from "react-router-dom";
+import { NavItem } from "./NavItem";
+import { HiMenuAlt2 } from "react-icons/hi";
+import { ImCross } from "react-icons/im";
 
 export default function Navbar() {
   const [activeMenu, setActiveMenu] = useState(null);
@@ -59,14 +62,14 @@ export default function Navbar() {
           className={`rounded-xl px-6 py-4 flex items-center justify-between transition-all duration-300
           ${
             isTransparent
-              ? "bg-white/10 backdrop-blur-md border border-white/20"
-              : "bg-white shadow-md border border-gray-200"
+              ? "bg-transparent border-transparent shadow-none"
+              : "bg-white/20 backdrop-blur-md border border-white/20 shadow-md"
           }`}
         >
           {/* LOGO */}
           <Link to="/" onClick={closeMobileMenu}>
             <div
-              className={`font-semibold text-lg transition-colors ${
+              className={`font-semibold md:text-3xl text-2xl transition-colors ${
                 isTransparent ? "text-white" : "text-black"
               }`}
             >
@@ -76,7 +79,7 @@ export default function Navbar() {
 
           {/* DESKTOP NAVIGATION */}
           <div
-            className={`hidden lg:flex items-center gap-8 text-sm font-medium ${
+            className={`hidden lg:flex items-center gap-8 text-lg font-medium ${
               isTransparent ? "text-white" : "text-black"
             }`}
           >
@@ -126,9 +129,9 @@ export default function Navbar() {
               )}
             </div>
 
-            <Link to="/who-we-are">Who We Are</Link>
-            <Link to="/innovations-lab">Innovations Lab</Link>
-            <Link to="/careers">Careers</Link>
+            <NavItem to="/who-we-are">Who We Are</NavItem>
+            <NavItem to="/careers">Careers</NavItem>
+            <NavItem to="/innovations-lab">Innovations Lab</NavItem>
           </div>
 
           {/* DESKTOP CTA */}
@@ -146,21 +149,22 @@ export default function Navbar() {
             }`}
             onClick={() => setMobileOpen(!mobileOpen)}
           >
-            {mobileOpen ? <X size={22} /> : <Menu size={22} />}
+            {mobileOpen ? (
+              <ImCross size={22} />
+            ) : (
+              <HiMenuAlt2 size={30} />
+            )}
           </button>
         </div>
 
         {/* MOBILE MENU */}
         {mobileOpen && (
           <div className="lg:hidden bg-white mt-3 rounded-xl shadow-md border p-4 space-y-4">
-
             {/* WHAT WE DO */}
             <button
               className="flex items-center gap-2"
               onClick={() =>
-                setMobileDropdown(
-                  mobileDropdown === "what" ? null : "what"
-                )
+                setMobileDropdown(mobileDropdown === "what" ? null : "what")
               }
             >
               What We Do <ChevronDown size={16} />
@@ -186,7 +190,7 @@ export default function Navbar() {
               className="flex items-center gap-2"
               onClick={() =>
                 setMobileDropdown(
-                  mobileDropdown === "industries" ? null : "industries"
+                  mobileDropdown === "industries" ? null : "industries",
                 )
               }
             >
@@ -195,8 +199,10 @@ export default function Navbar() {
 
             {mobileDropdown === "industries" && (
               <div className="ml-4 space-y-2 text-sm">
-                {[...navigation.industriesColumn1,
-                  ...navigation.industriesColumn2].map((item, i) => {
+                {[
+                  ...navigation.industriesColumn1,
+                  ...navigation.industriesColumn2,
+                ].map((item, i) => {
                   if (item.label) {
                     return (
                       <Link
@@ -234,13 +240,17 @@ export default function Navbar() {
             <Link to="/who-we-are" onClick={closeMobileMenu}>
               Who We Are
             </Link><br />
+            <br />
             <Link to="/innovations-lab" onClick={closeMobileMenu}>
               Innovations Lab
-            </Link><br />
+            </Link>
+            <br /><br />
             <Link to="/careers" onClick={closeMobileMenu}>
               Careers
-            </Link><br /><br />
-          
+            </Link>
+            <br />
+            <br />
+
             <Link to="/contact" onClick={closeMobileMenu}>
               Contact Us
             </Link>

@@ -6,6 +6,7 @@ import WhoWeAre from "./pages/WhoWeAre";
 import InnovationsLab from "./pages/InnovationsLab";
 import Careers from "./pages/Careers";
 import Contact from "./pages/Contact";
+import BlogDetail from "./components/sections/Blogs/BlogDetail";
 
 function App() {
   return (
@@ -17,6 +18,8 @@ function App() {
           <Route path="/innovations-lab" element={<InnovationsLab />} />
           <Route path="/careers" element={<Careers />} />
           <Route path="/contact" element={<Contact />} />
+          <Route path="/blogs/:slug" element={<BlogDetail />} />
+
         </Route>
       </Routes>
     </BrowserRouter>

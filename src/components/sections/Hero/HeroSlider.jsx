@@ -19,7 +19,7 @@ export default function HeroSlider() {
   }, []);
 
   return (
-    <div className="relative w-full h-[85vh] min-h-[520px] overflow-hidden">
+    <div className="relative w-full h-[100vh] min-h-[520px] overflow-hidden">
 
       {/* BACKGROUND GIF */}
       <AnimatePresence mode="wait">
@@ -30,10 +30,6 @@ export default function HeroSlider() {
     muted
     playsInline
     className="absolute inset-0 w-full h-full object-cover"
-    initial={{ opacity: 0 }}
-    animate={{ opacity: 1 }}
-    exit={{ opacity: 0 }}
-    transition={{ duration: 0.6 }}
   >
     <source
       src={heroSlides[current].video}
@@ -63,11 +59,11 @@ export default function HeroSlider() {
                   {heroSlides[current].title}
                 </h1>
 
-                <p className="hero-heading md:text-lg text-gray-200">
+                <p className="hero-heading md:text-lg text-gray-100">
                   {heroSlides[current].description}
                 </p>
 
-                <button className="cursor-pointer hero-heading mt-8 bg-white text-black px-6 py-3 rounded-md text-sm font-medium">
+                <button className="text-lg cursor-pointer hero-heading mt-8 bg-white text-black px-6 py-3 rounded-md text-sm font-medium">
                   {heroSlides[current].buttonText} <ArrowRight className="inline-block ml-2" />
                 </button>
               </motion.div>
@@ -82,7 +78,7 @@ export default function HeroSlider() {
                   className="relative group"
                 >
                   <span
-                    className={`cursor-pointer hero-heading md:border md:px-4 md:py-2 transition-colors duration-300 ${
+                    className={`cursor-pointer hero-heading  md:px-4 md:py-2 transition-colors duration-300 ${
                       current === index
                         ? "text-white"
                         : "text-white/60 hover:text-white"
