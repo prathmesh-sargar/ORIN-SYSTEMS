@@ -238,7 +238,7 @@ export default function Contact() {
                     <input
                       id="phone"
                       placeholder="Enter phone number"
-                      className="flex-1 border border-gray-300 rounded-md px-4 py-3 outline-none focus:ring-2 focus:ring-indigo-600"
+                      className="w-[165px] flex-1 border border-gray-300 rounded-md px-4 py-3 outline-none focus:ring-2 focus:ring-indigo-600"
                       {...register("phone", {
                         required: "Phone number required",
                         pattern: {
