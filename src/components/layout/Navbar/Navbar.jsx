@@ -9,6 +9,7 @@ import { Link, useLocation } from "react-router-dom";
 import { NavItem } from "./NavItem";
 import { HiMenuAlt2 } from "react-icons/hi";
 import { ImCross } from "react-icons/im";
+import { Button } from "@/components/ui/button";
 
 export default function Navbar() {
   const [activeMenu, setActiveMenu] = useState(null);
@@ -252,7 +253,9 @@ export default function Navbar() {
             <br />
 
             <Link to="/contact" onClick={closeMobileMenu}>
-              Contact Us
+              <Button>
+                Contact Us
+              </Button>
             </Link>
           </div>
         )}
