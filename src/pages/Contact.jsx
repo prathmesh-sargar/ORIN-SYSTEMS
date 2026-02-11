@@ -11,6 +11,7 @@ import {
 } from "lucide-react";
 import { useForm } from "react-hook-form";
 import { countryCodes } from "../data/countryCodes";
+import toast from "react-hot-toast";
 
 function Input({ error, ...props }) {
   return (
@@ -33,6 +34,9 @@ export default function Contact() {
   } = useForm();
 
   const onSubmit = async (data) => {
+
+    toast.success("Thank you for your response, our team will reach you within 24 hours");
+    reset();
 
     console.log("Form Data:", data);
   

@@ -2,91 +2,90 @@ export const navigation = {
   whatWeDo: [
     {
       label: "AI & Generative AI Services",
-      href: "/what-we-do/ai-generative-ai",
+      href: "/",
     },
     {
       label: "Data Analytics & Intelligence",
-      href: "/what-we-do/data-analytics",
+      href: "/",
     },
     {
       label: "Enterprise Application Solutions",
-      href: "/what-we-do/enterprise-applications",
+      href: "/",
     },
     {
       label: "Industrial IoT (IIoT) Services",
-      href: "/what-we-do/iiot-services",
+      href: "/",
     },
     {
       label: "Cloud Services",
-      href: "/what-we-do/cloud-services",
+      href: "/",
     },
     {
       label: "Infrastructure & Managed Services",
-      href: "/what-we-do/infrastructure-managed",
+      href: "/",
     },
     {
       label: "Business Process & Workflow Solutions",
-      href: "/what-we-do/business-process",
+      href: "/",
     },
     {
       label: "IT Consulting & Technology Advisory",
-      href: "/what-we-do/it-consulting",
+      href: "/",
     },
     {
       label: "Process Automation Solutions",
-      href: "/what-we-do/process-automation",
+      href: "/",
     },
   ],
 
   industriesColumn1: [
     {
       label: "Aerospace & Defense",
-      href: "/industries/aerospace-defense",
+      href: "/",
     },
     {
       label: "Automotive & Mobility",
-      href: "/industries/automotive-mobility",
+      href: "/",
     },
     {
       label: "Consumer Goods",
-      href: "/industries/consumer-goods",
+      href: "/",
     },
     {
       label: "Energy & Utilities",
-      href: "/industries/energy-utilities",
+      href: "/",
     },
     {
       title: "Financial Services",
       children: [
-        { label: "Banking", href: "/industries/financial-services/banking" },
-        { label: "Capital Markets", href: "/industries/financial-services/capital-markets" },
-        { label: "FinTech", href: "/industries/financial-services/fintech" },
-        { label: "Insurance", href: "/industries/financial-services/insurance" },
+        { label: "Banking", href: "/" },
+        { label: "Capital Markets", href: "/" },
+        { label: "FinTech", href: "/" },
+        { label: "Insurance", href: "/" },
       ],
     },
     {
       label: "High Technology",
-      href: "/industries/high-technology",
+      href: "/",
     },
     {
       label: "Life Sciences & Healthcare",
-      href: "/industries/life-sciences-healthcare",
+      href: "/",
     },
-    
   ],
 
   industriesColumn2: [
-    { label: "Manufacturing", href: "/industries/manufacturing" },
-    { label: "Mining & Natural Resources", href: "/industries/mining" },
-    { label: "Oil & Gas", href: "/industries/oil-gas" },
-    { label: "Private Equity", href: "/industries/private-equity" },
-    { label: "Public Sector", href: "/industries/public-sector" },
-    { label: "Retail", href: "/industries/retail" },
-    { label: "Semiconductor", href: "/industries/semiconductor" },
-    { label: "Telecom & Media Services", href: "/industries/telecom-media" },
+    { label: "Manufacturing", href: "/" },
+    { label: "Mining & Natural Resources", href: "/" },
+    { label: "Oil & Gas", href: "/" },
+    { label: "Private Equity", href: "/" },
+    { label: "Public Sector", href: "/" },
+    { label: "Retail", href: "/" },
+    { label: "Semiconductor", href: "/" },
+    { label: "Telecom & Media Services", href: "/" },
     {
       label: "Travel, Transport, Logistics & Hospitality",
-      href: "/industries/travel-logistics",
+      href: "/",
     },
   ],
 };

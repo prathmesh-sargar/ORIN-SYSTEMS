@@ -1,4 +1,5 @@
 export const countryCodes = [
+  { name: "IN", dialCode: "+91" },
   { name: "AF", dialCode: "+93" },
   { name: "AL", dialCode: "+355" },
   { name: "DZ", dialCode: "+213" },
@@ -75,7 +76,6 @@ export const countryCodes = [
   { name: "HN", dialCode: "+504" },
   { name: "HU", dialCode: "+36" },
   { name: "IS", dialCode: "+354" },
-  { name: "IN", dialCode: "+91" },
   { name: "ID", dialCode: "+62" },
   { name: "IR", dialCode: "+98" },
   { name: "IQ", dialCode: "+964" },
