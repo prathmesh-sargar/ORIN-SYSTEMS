@@ -4,7 +4,6 @@ import { growthSection, growthCards } from "./growthData";
 
 export default function GrowthContent() {
 
-  console.log("GrowthContent rendered",growthCards );
   return (
     <div>
       {/* SECTION HEADING */}
