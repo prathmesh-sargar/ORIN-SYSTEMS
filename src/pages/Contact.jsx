@@ -14,7 +14,7 @@ import { countryCodes } from "../data/countryCodes";
 import toast from "react-hot-toast";
 
 const API_URL = `${import.meta.env.VITE_API_BASE_URL}/client-enquiries/save`;
-console.log("API URL:", API_URL);
+// console.log("API URL:", API_URL);
 
 
 const industryOptions = [
